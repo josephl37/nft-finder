@@ -1,9 +1,11 @@
 import MenuBar from "./menuBar";
+import GridView from "./gridView";
 
 export default function Main() {
   return (
-    <div className="col-start-2 bg-white rounded-tr-lg rounded-br-lg">
+    <div className="col-start-2 bg-white rounded-tr-lg rounded-br-lg flex flex-col min-h-0 overflow-hidden">
       <MenuBar />
+      <GridView />
     </div>
   );
 }

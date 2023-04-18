@@ -18,4 +18,6 @@
 
 body {
   background-color: #445772;
+  overflow: hidden;
+  height: 100%;
 }
