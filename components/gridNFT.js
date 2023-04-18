@@ -1,4 +1,4 @@
-export default function GridView() {
+export default function GridNFT() {
   return (
     <div>
       <div className="bg-gray-3 w-28 h-28 rounded mx-auto" />
