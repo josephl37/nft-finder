@@ -8,6 +8,8 @@ const client = createClient({
   provider: getDefaultProvider(),
 });
 
+
+
 export default function Home() {
   return (
     <WagmiConfig client={client}>

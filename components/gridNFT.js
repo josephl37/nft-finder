@@ -1,8 +1,16 @@
-export default function GridNFT() {
+import Image from "next/image";
+
+export default function GridNFT({ nft }) {
   return (
     <div>
-      <div className="bg-gray-3 w-28 h-28 rounded mx-auto" />
-      <p className="text-xs text-center m-2">CryptoPunk #1</p>
+      <Image
+        src={nft.media[0].gateway}
+        alt="nft"
+        width="100"
+        height="100"
+        className="rounded mx-auto"
+      />
+      <p className="text-xs text-center m-2">{nft.title}</p>
     </div>
   );
 }

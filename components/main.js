@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { useConnect, useDisconnect, useAccount } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import MenuBar from "./menuBar";
 import GridView from "./gridView";
 import ListView from "./listView";
+import { fetchNfts } from "@/store/slices/nftSlice";
 
 export default function Main() {
   const [isClient, setIsClient] = useState(false);
@@ -13,10 +15,15 @@ export default function Main() {
     connector: new InjectedConnector(),
   });
   const { disconnect } = useDisconnect();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchNfts(address));
+  }, [dispatch, address])
 
   const toggleView = () => {
     setGrid(!isGrid);
