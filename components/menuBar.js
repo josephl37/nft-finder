@@ -26,7 +26,7 @@ export default function MenuBar({
           </div>
         </div>
         <div className="flex items-center">
-          <p className="text-sm font-medium text-gray-4">{truncateEthAddress(address)}'s wallet</p>
+          <p className="text-sm font-medium text-gray-4">{truncateEthAddress(address)}&apos;s wallet</p>
         </div>
         <div className="flex gap-2 mr-2">
           <div
