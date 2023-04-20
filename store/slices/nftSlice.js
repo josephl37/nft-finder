@@ -7,7 +7,6 @@ const base = `https://eth-mainnet.g.alchemy.com/v2/${API_KEY}/getNFTs`
 // create fetchNfts function
 export const fetchNfts = createAsyncThunk('data/fetchNfts', async (address) => {
   const response = await axios.get(`${base}/?owner=${address}`)
-  console.log(response);
   return response.data;
 })
 
