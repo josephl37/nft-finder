@@ -1,13 +1,18 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export default function GridNFT({ nft }) {
+export default function GridNFT({ index, nft, activeNFT, onClickNFT }) {
   const [src, setSrc] = useState(nft.media[0].gateway);
 
   const title = nft.title ? nft.title : "UNTITLED";
+  const activeImg = activeNFT === index ? "bg-gray-2 rounded" : "";
+  const activeText = activeNFT === index ? "bg-blue-2 text-white rounded p-0.5" : "";
 
   return (
-    <div>
+    <div
+    onClick={e => onClickNFT(e, index)}
+    >
+      <div className={`p-2 ${activeImg}`}>
       <Image
         src={src}
         alt="nft"
@@ -16,7 +21,8 @@ export default function GridNFT({ nft }) {
         className="rounded mx-auto"
         onError={() => setSrc("/../public/placeholder.png")}
       />
-      <p className="text-xs text-center m-2 truncate">{title}</p>
+      </div>
+      <p className={`text-xs text-center m-1 truncate ${activeText}`}>{title}</p>
     </div>
   );
 }
