@@ -1,8 +1,15 @@
 import ListNFT from "./listNFT";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 export default function ListView() {
   const data = useSelector((state) => state.nfts.data)
+  const [ activeNFT, setActiveNFT ] = useState("");
+
+  const onClickNFT = (e, index) => {
+    e.preventDefault();
+    setActiveNFT(index)
+  }
 
   return (
     <div className="overflow-y-auto">
@@ -13,7 +20,7 @@ export default function ListView() {
       <div>
       {data ? (
         data.map((nft, index) => (
-          <ListNFT key={index} nft={nft} index={index}/>
+          <ListNFT key={index} nft={nft} index={index} activeNFT={activeNFT} onClickNFT={onClickNFT}/>
         ))
       ) : (
         <p>Loading...</p>
